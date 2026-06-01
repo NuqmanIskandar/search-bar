@@ -21,37 +21,37 @@ const App = () => {
           .then(res => res.json())
           .then(fallback => setSongs(fallback.results || []))
         }
-        console.log(data.results[0])
       })
     }, 500)
 
     return () => clearTimeout(timer)
   }, [query])
 
-
   return (
     <>
       <div className='first-div'>
-        <input 
-          className='search-bar'
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setTimeout(() => setIsFocused(false), 150)}
-          placeholder='search...'
-        />
-        {isFocused &&(
-          <div className='search-result'>
-            {songs.map((song) => (
-              <div className='song-box' key={song.trackId}>
-                  <img src={song.artworkUrl60}/>
+        <div className='search-wrapper'>
+          <input
+            className='search-bar'
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setTimeout(() => setIsFocused(false), 150)}
+            placeholder='search...'
+          />
+          {isFocused && (
+            <div className='search-result'>
+              {songs.map((song) => (
+                <div className='song-box' key={song.trackId}>
+                  <img src={song.artworkUrl60} />
                   <div className='bar-div'>
                     <p className='song-name'>{song.trackName}</p>
                     <p className='song-artist'>{song.artistName}</p>
                   </div>
-              </div>
-            ))}
-          </div>
-        )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
         <h1>TEST</h1>
       </div>
     </>
