@@ -52,7 +52,7 @@ input:focus {
 .song-box {
   display: flex;
   width: 70vw;
-  border: 2px solid black;
+  border: 2px solid rgb(83, 83, 83);
   background-color: rgb(97, 96, 96);
   padding: 6px 6px;
 }
